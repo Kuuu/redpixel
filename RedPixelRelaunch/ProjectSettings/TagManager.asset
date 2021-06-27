@@ -22,6 +22,8 @@ TagManager:
   - ConveyorRight
   - ConveyorLeft
   - Lights
+  - bouncer
+  - Fireball
   layers:
   - Default
   - TransparentFX

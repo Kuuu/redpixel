@@ -165,7 +165,7 @@ public class PlayerMove : MonoBehaviour {
 
 
 	public void OnTriggerEnter2D(Collider2D col) {
-		if (col.tag == "Spike") {
+		if (col.tag == "Spike" || col.tag == "Fireball") {
 			Die();
 		}
 
