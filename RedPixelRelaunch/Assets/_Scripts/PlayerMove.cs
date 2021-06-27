@@ -39,7 +39,7 @@ public class PlayerMove : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 
 		device_type = SystemInfo.deviceType;
-        device_type = DeviceType.Handheld; //for testing
+        //device_type = DeviceType.Handheld; //for testing
 
 
         if (ui_on == 0) // If it wasn't set yet, set it to on
@@ -93,13 +93,13 @@ public class PlayerMove : MonoBehaviour {
 				saved_jump = MAX_JUMP_SAVE;
 			}
 
-			if (Input.GetKey (KeyCode.RightArrow)) {
+			if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
 				right = true;
 			} else {
 				right = false;
 			}
 
-			if (Input.GetKey (KeyCode.LeftArrow)) {
+			if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
 				left = true;
 			} else {
 				left = false;
