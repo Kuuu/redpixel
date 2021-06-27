@@ -39,8 +39,10 @@ public class PlayerMove : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 
 		device_type = SystemInfo.deviceType;
+        device_type = DeviceType.Handheld; //for testing
 
-		if (ui_on == 0) // If it wasn't set yet, set it to on
+
+        if (ui_on == 0) // If it wasn't set yet, set it to on
 			ui_on = 1;
 
 		DrawUI();
@@ -196,7 +198,14 @@ public class PlayerMove : MonoBehaviour {
 			rb.AddForce(new Vector2(0, jumpPower*jumpMultiplier*2 * Time.deltaTime));
 		}
 
-		if ((col.tag == "Key") && (col.gameObject.GetComponent<SpriteRenderer>().enabled == true)) {
+        if (col.tag == "DoubleJellyHead")
+        {
+            Sounds.Instance.PlayJelly();
+            col.tag = "JellyHead";
+            rb.AddForce(new Vector2(0, jumpPower * jumpMultiplier * 2 * Time.deltaTime));
+        }
+
+        if ((col.tag == "Key") && (col.gameObject.GetComponent<SpriteRenderer>().enabled == true)) {
 			col.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 			for (int i = 0; i < col.transform.childCount; i++) {
 				col.transform.GetChild(i).GetComponent<Animator>().Play("MovingPlatform");
