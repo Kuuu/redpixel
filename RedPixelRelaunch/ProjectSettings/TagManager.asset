@@ -25,6 +25,7 @@ TagManager:
   - bouncer
   - Fireball
   - DoubleJellyHead
+  - platformBouncer
   layers:
   - Default
   - TransparentFX

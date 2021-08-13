@@ -28,9 +28,11 @@ public class PlayerMove : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        /*
 		CrossPlatformInputManager.SetButtonUp("Left");
 		CrossPlatformInputManager.SetButtonUp("Right");
 		CrossPlatformInputManager.SetButtonUp("Jump");
+        */
 		Application.targetFrameRate = 60;
 		Physics2D.gravity = new Vector2(0f, -9.81f);
 
@@ -39,7 +41,8 @@ public class PlayerMove : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 
 		device_type = SystemInfo.deviceType;
-        //device_type = DeviceType.Handheld; //for testing
+        //device_type = DeviceType.Desktop; //for testing
+        //device_type = DeviceType.Handheld;
 
 
         if (ui_on == 0) // If it wasn't set yet, set it to on
@@ -51,14 +54,9 @@ public class PlayerMove : MonoBehaviour {
 	void Update() {
 
         // device_type = DeviceType.Handheld;
-
+        /*
         //PHONE INPUT
         if (device_type == DeviceType.Handheld) {
-			/*
-			if (CrossPlatformInputManager.GetButtonDown ("Jump") && standing) {
-				jump = true;
-			}
-			*/
 
 			if (CrossPlatformInputManager.GetButtonDown ("Jump")) {
 				saved_jump = MAX_JUMP_SAVE;
@@ -77,7 +75,7 @@ public class PlayerMove : MonoBehaviour {
 			if (CrossPlatformInputManager.GetButtonUp ("Left")) {
 				left = false;
 			}
-		}
+		}*/
 			
 		//END OF PHONE INPUT
 
@@ -106,15 +104,16 @@ public class PlayerMove : MonoBehaviour {
 			}
 		}
 
-		// END OF COMPUTER INPUT
+        // END OF COMPUTER INPUT
 
 
+        /*
 		if (CrossPlatformInputManager.GetButtonDown("ChangeLevel")) {
 			SceneManager.LoadScene(0);
 		}
+        
 
-
-		if (CrossPlatformInputManager.GetButtonDown("Toogle")) {
+        if (CrossPlatformInputManager.GetButtonDown("Toogle")) {
 			if (ui_on == 1) {
 				ui_on = 2;
 			} else {
@@ -122,11 +121,32 @@ public class PlayerMove : MonoBehaviour {
 			}
 
 			DrawUI();
-		}
+		}*/
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (ui_on == 1)
+            {
+                ui_on = 2;
+            }
+            else
+            {
+                ui_on = 1;
+            }
+
+            DrawUI();
+        }
+        
 
 
 
-		if (transform.position.y <= dieY) {
+        if (transform.position.y <= dieY) {
 			Die();
 		}
 	}

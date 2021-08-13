@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9588388}
   - component: {fileID: 11437054}
   m_Layer: 0
-  m_Name: breaking_block
+  m_Name: grey_breaking_block
   m_TagString: FallingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0c46517f2c0648e4e81930bb4313f142, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 05b227e1a2ac3ad4889a2e3705b7cec1, type: 3}
+  m_Color: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -37,9 +37,11 @@ public class PlayerMove3 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        /*
 		CrossPlatformInputManager.SetButtonUp("Left");
 		CrossPlatformInputManager.SetButtonUp("Right");
 		CrossPlatformInputManager.SetButtonUp("Jump");
+        */
 		Application.targetFrameRate = 60;
 
 		GameObject.Find("Toogle").GetComponent<CanvasRenderer>().SetAlpha(0.0F);
@@ -50,8 +52,9 @@ public class PlayerMove3 : MonoBehaviour {
 		Physics2D.gravity = new Vector2(0f, -9.81f);
 
 		device_type = SystemInfo.deviceType;
+        //device_type = DeviceType.Handheld;
 
-		if (ui_on == 0) // If it wasn't set yet, set it to on
+        if (ui_on == 0) // If it wasn't set yet, set it to on
 			ui_on = 1;
 
 		DrawUI();
@@ -62,7 +65,7 @@ public class PlayerMove3 : MonoBehaviour {
 
 	void Update() {
 		// TOUCH INPUT
-
+        /*
 		//PHONE INPUT
 		if (device_type == DeviceType.Handheld) {
 			if (CrossPlatformInputManager.GetButtonDown ("Jump") && standing) {
@@ -82,7 +85,7 @@ public class PlayerMove3 : MonoBehaviour {
 			if (CrossPlatformInputManager.GetButtonUp ("Left")) {
 				left = false;
 			}
-		}
+		}*/
 
 		//COMPUTER INPUT
 		if (device_type == DeviceType.Desktop) {
@@ -90,20 +93,26 @@ public class PlayerMove3 : MonoBehaviour {
 				jump = true;
 			}
 
-			if (Input.GetKey (KeyCode.RightArrow)) {
-				right = true;
-			} else {
-				right = false;
-			}
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            {
+                right = true;
+            }
+            else
+            {
+                right = false;
+            }
 
-			if (Input.GetKey (KeyCode.LeftArrow)) {
-				left = true;
-			} else {
-				left = false;
-			}
-		}
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            {
+                left = true;
+            }
+            else
+            {
+                left = false;
+            }
+        }
 
-
+        /*
 		if (CrossPlatformInputManager.GetButtonDown("ChangeLevel")) {
 			SceneManager.LoadScene(0);
 		}
@@ -118,10 +127,30 @@ public class PlayerMove3 : MonoBehaviour {
 
 			DrawUI();
 		}
+        */
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (ui_on == 1)
+            {
+                ui_on = 2;
+            }
+            else
+            {
+                ui_on = 1;
+            }
+
+            DrawUI();
+        }
 
 
 
-		if (transform.position.y <= dieY) {
+        if (transform.position.y <= dieY) {
 			Die();
 		}
 	}

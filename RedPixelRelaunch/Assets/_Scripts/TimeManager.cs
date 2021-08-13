@@ -46,8 +46,8 @@ public class TimeManager : MonoBehaviour {
 	}
 
 	string StringFrom(float floattime) {
-		float minutes = floattime / 60;
-		float seconds = floattime % 60;
+		int minutes = (int)floattime / 60;
+		int seconds = (int)floattime % 60;
 		float fraction = (floattime * 100) % 100;
 		return string.Format ("{0:00} : {1:00} : {2:000}", minutes, seconds, fraction);
 	}

@@ -1573,7 +1573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11452146, guid: 5ea4ec3b196c64f44898257a43737650, type: 3}
       propertyPath: m_Text
-      value: That was the last level
+      value: Jump to continue
       objectReference: {fileID: 0}
     - target: {fileID: 22403016, guid: 5ea4ec3b196c64f44898257a43737650, type: 3}
       propertyPath: m_RootOrder
@@ -2705,7 +2705,7 @@ Transform:
   m_LocalScale: {x: 3.3204892, y: 3.3204892, z: 3.3204892}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 111
+  m_RootOrder: 112
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &599681686
 PrefabInstance:
@@ -4703,7 +4703,7 @@ Transform:
   m_LocalScale: {x: 3.3204892, y: 3.3204892, z: 3.3204892}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 101
+  m_RootOrder: 102
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1277722513
 PrefabInstance:
