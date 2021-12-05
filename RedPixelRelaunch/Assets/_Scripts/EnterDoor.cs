@@ -10,6 +10,7 @@ public class EnterDoor : MonoBehaviour {
 	Text hitenter;
 	Text coins;
 	bool won = false;
+	bool nextLevelUnlocked = false;
 
 	int remaining_coins;
 	DoorOpen door_open;
@@ -38,8 +39,12 @@ public class EnterDoor : MonoBehaviour {
 			}
 		} else {
 			if (won && Input.GetButtonDown ("Vertical")) {
-				int scene = SceneManager.GetActiveScene ().buildIndex + 1;
-				SceneManager.LoadScene (scene, LoadSceneMode.Single);
+
+				if (nextLevelUnlocked)
+                {
+					int scene = SceneManager.GetActiveScene().buildIndex + 1;
+					SceneManager.LoadScene(scene, LoadSceneMode.Single);
+				}
 			}
 		}
 	}
@@ -71,7 +76,23 @@ public class EnterDoor : MonoBehaviour {
 		won = true;
 		timeManager.SaveTime();
 
-		PlayerPrefs.SetInt("Level"+(SceneManager.GetActiveScene().buildIndex+1), 1);
+		int currentLevel = SceneManager.GetActiveScene().buildIndex;
+
+		if (currentLevel == 19)
+        {
+			PlayerPrefs.SetInt("WonLevel19", 1);
+		}
+
+		if (currentLevel == 20 && PlayerPrefs.GetInt("WonLevel19") != 1)
+        {
+			nextLevelUnlocked = false;
+			hitenter.text = "Now finish other levels";
+        } else
+        {
+			nextLevelUnlocked = true;
+        }
+
+		PlayerPrefs.SetInt("Level"+(currentLevel + 1)+"unlocked", 1);
 		PlayerPrefs.Save();
 		niceone.canvasRenderer.SetAlpha(1.0f);
 		hitenter.canvasRenderer.SetAlpha(1.0f);

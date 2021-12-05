@@ -11,13 +11,13 @@ public class ChooseLevel : MonoBehaviour {
     public int maxPages;
 	static int page;
     public static bool sounds_on = true;
-	SpriteRenderer playlvl20;
+	Image playlvl20;
 
     // Use this for initialization
     void Start () {
-		PlayerPrefs.SetInt("Level1", 1);
+		PlayerPrefs.SetInt("Level1unlocked", 1);
 
-		playlvl20 = GameObject.Find("playlvl20").GetComponent<SpriteRenderer>();
+		playlvl20 = GameObject.Find("playlvl20").GetComponent<Image>();
 
 		if (page == 0)
 			page = 1;
@@ -51,7 +51,7 @@ public class ChooseLevel : MonoBehaviour {
 			Text txt = GameObject.Find(buttons[index].name+"/Text").GetComponent<Text>(); // Change text
 			txt.text = buttons[index].name;
 
-			if (PlayerPrefs.GetInt("Level"+(((page-1)*10)+(index+1))) == 1) {
+			if (PlayerPrefs.GetInt("Level"+(((page-1)*10)+(index+1))+"unlocked") == 1) {
 				buttons[index].interactable = true;
 			} else {
 				buttons[index].interactable = false;
@@ -81,7 +81,7 @@ public class ChooseLevel : MonoBehaviour {
 		}
 
 		//Remove or add level 20 ad
-		if ((page == 1) && (PlayerPrefs.GetInt("Level11") != 1) && (PlayerPrefs.GetInt("playedlvl20") != 1)) {
+		if ((page == 1) && (PlayerPrefs.GetInt("WonLevel19") != 1)) {
 			playlvl20.enabled = true;
 		} else {
 			playlvl20.enabled = false;
