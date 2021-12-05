@@ -65,7 +65,7 @@ public class ChooseLevel : MonoBehaviour {
 			}
 		}
 
-		GameObject.Find("background").GetComponent<SpriteRenderer>().sprite = backgrounds[page-1];
+		GameObject.Find("background").GetComponent<Image>().sprite = backgrounds[page-1];
 
 
 		GameObject.Find("Previous").GetComponent<Button>().interactable = false;
