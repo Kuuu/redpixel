@@ -32,7 +32,7 @@ public class ChooseLevel : MonoBehaviour {
 
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape))
-			Application.Quit();
+			Quit();
 	}
 
 	public void ButtonPressed(int name) {
@@ -107,7 +107,17 @@ public class ChooseLevel : MonoBehaviour {
 		UpdateSoundsButton();
 	}
 
-	void UpdateSoundsButton()
+    public void Quit()
+    {
+		Application.Quit();
+	}
+
+	public void ShowLeaderboards()
+    {
+		Debug.Log("Leaderboards");
+    }
+
+    void UpdateSoundsButton()
     {
 		if (sounds_on)
 		{
