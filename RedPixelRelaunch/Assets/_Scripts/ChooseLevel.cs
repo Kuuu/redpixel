@@ -26,15 +26,8 @@ public class ChooseLevel : MonoBehaviour {
 
         AudioListener.volume = sounds_on ? 1.0f : 0.0f;
 
-        if (sounds_on)
-        {
-            GameObject.Find("Sounds").GetComponent<Image>().sprite = sounds[0];
-        }
-        else
-        {
-            GameObject.Find("Sounds").GetComponent<Image>().sprite = sounds[1];
-        }
-    }
+		UpdateSoundsButton();
+	}
 
 
 	void Update () {
@@ -111,13 +104,18 @@ public class ChooseLevel : MonoBehaviour {
     {
         sounds_on = !sounds_on;
         AudioListener.volume = sounds_on ? 1.0f : 0.0f;
-        if (sounds_on)
-        {
-            GameObject.Find("Sounds").GetComponent<Image>().sprite = sounds[0];
-        }
-        else
-        {
-            GameObject.Find("Sounds").GetComponent<Image>().sprite = sounds[1];
-        }
-    }
+		UpdateSoundsButton();
+	}
+
+	void UpdateSoundsButton()
+    {
+		if (sounds_on)
+		{
+			GameObject.Find("Sounds").GetComponent<Image>().sprite = sounds[0];
+		}
+		else
+		{
+			GameObject.Find("Sounds").GetComponent<Image>().sprite = sounds[1];
+		}
+	}
 }
