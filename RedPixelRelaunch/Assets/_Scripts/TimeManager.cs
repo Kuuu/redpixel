@@ -32,7 +32,7 @@ public class TimeManager : MonoBehaviour {
 	void Update () {
 		if (!timeSaved) {
 			currentTime += Time.deltaTime;
-			if (PlayerMove.ui_on == 1) currentTimeLabel.text = StringFrom(currentTime);
+			currentTimeLabel.text = StringFrom(currentTime);
 		}
 	}
 

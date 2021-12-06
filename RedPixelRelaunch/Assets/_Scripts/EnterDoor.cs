@@ -32,19 +32,12 @@ public class EnterDoor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (PlayerMove.device_type == DeviceType.Handheld) {
-			if (won && CrossPlatformInputManager.GetButtonDown ("Jump")) {
-				int scene = SceneManager.GetActiveScene ().buildIndex + 1;
-				SceneManager.LoadScene (scene, LoadSceneMode.Single);
-			}
-		} else {
-			if (won && Input.GetButtonDown ("Vertical")) {
+		if (won && Input.GetButtonDown ("Vertical")) {
 
-				if (nextLevelUnlocked)
-                {
-					int scene = SceneManager.GetActiveScene().buildIndex + 1;
-					SceneManager.LoadScene(scene, LoadSceneMode.Single);
-				}
+			if (nextLevelUnlocked)
+            {
+				int scene = SceneManager.GetActiveScene().buildIndex + 1;
+				SceneManager.LoadScene(scene, LoadSceneMode.Single);
 			}
 		}
 	}
