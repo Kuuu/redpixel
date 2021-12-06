@@ -128,8 +128,8 @@ public class PlayerMove : MonoBehaviour {
             rb.AddForce(new Vector2(0, jumpPower * jumpMultiplier * 2 * Time.deltaTime));
         }
 
-        if ((col.tag == "Key") && (col.gameObject.GetComponent<SpriteRenderer>().enabled == true)) {
-			col.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        if ((col.tag == "Key") && (col.gameObject.GetComponent<Key>().isOn)) {
+			col.gameObject.GetComponent<Key>().TurnOff();
 			for (int i = 0; i < col.transform.childCount; i++) {
 				col.transform.GetChild(i).GetComponent<Animator>().Play("MovingPlatform");
 			}
