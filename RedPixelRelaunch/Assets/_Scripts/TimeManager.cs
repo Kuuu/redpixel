@@ -24,7 +24,8 @@ public class TimeManager : MonoBehaviour {
 		bestTimeLabel = GameObject.Find ("BestTime").GetComponent<Text>();
 		currentTimeLabel = GameObject.Find("CurrentTime").GetComponent<Text>();
 
-		bestTime = PlayerPrefs.GetFloat("Time"+currentLevel);
+		bestTime = GameData.Instance.GetTime("Time"+currentLevel);
+		Debug.Log(bestTime);
 		bestTimeLabel.text = StringFrom(bestTime);
 	}
 	
@@ -40,7 +41,7 @@ public class TimeManager : MonoBehaviour {
 		timeSaved = true;
 		if ((bestTime == 0f) || (currentTime < bestTime)) {
 			bestTime = currentTime;
-			PlayerPrefs.SetFloat("Time"+currentLevel, bestTime);
+			GameData.Instance.SetTime("Time"+currentLevel, bestTime);
 		}
 		currentTime = 0f;
 	}

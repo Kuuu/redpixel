@@ -73,10 +73,12 @@ public class EnterDoor : MonoBehaviour {
 
 		if (currentLevel == 19)
         {
-			PlayerPrefs.SetInt("WonLevel19", 1);
+			//PlayerPrefs.SetInt("WonLevel19", 1);
+			GameData.Instance.Set("WonLevel19", 1);
 		}
 
-		if (currentLevel == 20 && PlayerPrefs.GetInt("WonLevel19") != 1)
+		//if (currentLevel == 20 && PlayerPrefs.GetInt("WonLevel19") != 1)
+		if (currentLevel == 20 && GameData.Instance.Get("WonLevel19") != 1)
         {
 			nextLevelUnlocked = false;
 			hitenter.text = "Now finish other levels";
@@ -85,8 +87,9 @@ public class EnterDoor : MonoBehaviour {
 			nextLevelUnlocked = true;
         }
 
-		PlayerPrefs.SetInt("Level"+(currentLevel + 1)+"unlocked", 1);
-		PlayerPrefs.Save();
+		//PlayerPrefs.SetInt("Level"+(currentLevel + 1)+"unlocked", 1);
+		//PlayerPrefs.Save();
+		GameData.Instance.Set("Level" + (currentLevel + 1) + "unlocked", 1);
 		niceone.canvasRenderer.SetAlpha(1.0f);
 		hitenter.canvasRenderer.SetAlpha(1.0f);
 		niceone.CrossFadeAlpha(0.0f, 1f, false);

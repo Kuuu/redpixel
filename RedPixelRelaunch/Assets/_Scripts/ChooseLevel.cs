@@ -15,7 +15,8 @@ public class ChooseLevel : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		PlayerPrefs.SetInt("Level1unlocked", 1);
+		//PlayerPrefs.SetInt("Level1unlocked", 1);
+		GameData.Instance.Set("Level1unlocked", 1);
 
 		playlvl20 = GameObject.Find("playlvl20").GetComponent<Image>();
 
@@ -51,7 +52,9 @@ public class ChooseLevel : MonoBehaviour {
 			Text txt = GameObject.Find(buttons[index].name+"/Text").GetComponent<Text>(); // Change text
 			txt.text = buttons[index].name;
 
-			if (PlayerPrefs.GetInt("Level"+(((page-1)*10)+(index+1))+"unlocked") == 1) {
+			//if (PlayerPrefs.GetInt("Level"+(((page-1)*10)+(index+1))+"unlocked") == 1) {
+			if (GameData.Instance.Get("Level" + (((page - 1) * 10) + (index + 1)) + "unlocked") == 1)
+			{
 				buttons[index].interactable = true;
 			} else {
 				buttons[index].interactable = false;
@@ -75,13 +78,17 @@ public class ChooseLevel : MonoBehaviour {
 
 		//Close level 21 if 19 isn't open
 		if (buttons[0].name == "21") {
-			if (PlayerPrefs.GetInt("WonLevel19") != 1) {
+			//if (PlayerPrefs.GetInt("WonLevel19") != 1) {
+			if (GameData.Instance.Get("WonLevel19") != 1)
+			{
 				buttons[0].interactable = false;
 			}
 		}
 
 		//Remove or add level 20 ad
-		if ((page == 1) && (PlayerPrefs.GetInt("WonLevel19") != 1)) {
+		//if ((page == 1) && (PlayerPrefs.GetInt("WonLevel19") != 1)) {
+		if ((page == 1) && (GameData.Instance.Get("WonLevel19") != 1))
+		{
 			playlvl20.enabled = true;
 		} else {
 			playlvl20.enabled = false;
