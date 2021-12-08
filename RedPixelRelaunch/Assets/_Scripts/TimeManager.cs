@@ -20,7 +20,16 @@ public class TimeManager : MonoBehaviour {
 
 		currentLevel = SceneManager.GetActiveScene().buildIndex;
 
-		GameObject.Find("CurrentLevel").GetComponent<Text>().text = "Level " + currentLevel;
+		if (LanguageManager.Instance.GetLanguage() == "en")
+        {
+			GameObject.Find("CurrentLevel").GetComponent<Text>().text = "Level " + currentLevel;
+		} else if (LanguageManager.Instance.GetLanguage() == "ru")
+		{
+			GameObject.Find("CurrentLevel").GetComponent<Text>().text = "Уровень " + currentLevel;
+		}
+		
+
+
 		bestTimeLabel = GameObject.Find ("BestTime").GetComponent<Text>();
 		currentTimeLabel = GameObject.Find("CurrentTime").GetComponent<Text>();
 

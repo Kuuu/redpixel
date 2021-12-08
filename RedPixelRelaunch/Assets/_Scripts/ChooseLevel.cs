@@ -29,6 +29,7 @@ public class ChooseLevel : MonoBehaviour {
 
 		UpdateSoundsButton();
 		UpdateMusicButton();
+		LanguageManager.Instance.UpdateButtonImage();
 	}
 
 
@@ -155,4 +156,10 @@ public class ChooseLevel : MonoBehaviour {
 			GameObject.Find("MusicButton").GetComponent<Image>().sprite = music[1];
 		}
 	}
+
+	public void ChangeLanguage()
+    {
+		LanguageManager.Instance.ChangeLanguage();
+		GameObject.Find("playlvl20").GetComponent<TextObject>().UpdateImage();
+    }
 }
