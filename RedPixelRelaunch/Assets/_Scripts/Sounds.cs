@@ -7,7 +7,7 @@ public class Sounds : MonoBehaviour {
 
 	AudioSource[] sources;
 
-	AudioSource coin, jelly, door, jumper;
+	AudioSource music, coin, jelly, door, jumper;
 
 	public static Sounds Instance {
 		get { return instance; }
@@ -23,7 +23,8 @@ public class Sounds : MonoBehaviour {
 		DontDestroyOnLoad(this.gameObject);
 
 		sources = GetComponents<AudioSource>();
-		coin = sources[1]; // [0] is music
+		music = sources[0];
+		coin = sources[1];
 		jelly = sources[2];
 		door = sources[3];
 		jumper = sources[4];
@@ -41,5 +42,33 @@ public class Sounds : MonoBehaviour {
 	public void PlayJumper() {
 		jumper.Play();
 	}
+
+	public void TurnSounds(bool isOn)
+    {
+		if (isOn)
+        {
+			coin.mute = false;
+			jelly.mute = false;
+			door.mute = false;
+			jumper.mute = false;
+        } else
+        {
+			coin.mute = true;
+			jelly.mute = true;
+			door.mute = true;
+			jumper.mute = true;
+		}
+    }
+
+	public void TurnMusic(bool isOn)
+    {
+		if (isOn)
+        {
+			music.mute = false;
+        } else
+        {
+			music.mute = true;
+        }
+    }
 
 }

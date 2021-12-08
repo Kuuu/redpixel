@@ -11,10 +11,12 @@ public class ChooseLevel : MonoBehaviour {
     public int maxPages;
 	static int page;
     public static bool sounds_on = true;
+	public static bool music_on = true;
 	Image playlvl20;
+	public Sprite[] music;
 
-    // Use this for initialization
-    void Start () {
+	// Use this for initialization
+	void Start () {
 		//PlayerPrefs.SetInt("Level1unlocked", 1);
 		GameData.Instance.Set("Level1unlocked", 1);
 
@@ -25,9 +27,8 @@ public class ChooseLevel : MonoBehaviour {
 		//PlayerPrefs.DeleteAll();
 		LoadButtons();
 
-        AudioListener.volume = sounds_on ? 1.0f : 0.0f;
-
 		UpdateSoundsButton();
+		UpdateMusicButton();
 	}
 
 
@@ -110,11 +111,18 @@ public class ChooseLevel : MonoBehaviour {
     public void ChangeSounds()
     {
         sounds_on = !sounds_on;
-        AudioListener.volume = sounds_on ? 1.0f : 0.0f;
+		Sounds.Instance.TurnSounds(sounds_on);
 		UpdateSoundsButton();
 	}
 
-    public void Quit()
+	public void ChangeMusic()
+	{
+		music_on = !music_on;
+		Sounds.Instance.TurnMusic(music_on);
+		UpdateMusicButton();
+	}
+
+	public void Quit()
     {
 		Application.Quit();
 	}
@@ -128,11 +136,23 @@ public class ChooseLevel : MonoBehaviour {
     {
 		if (sounds_on)
 		{
-			GameObject.Find("Sounds").GetComponent<Image>().sprite = sounds[0];
+			GameObject.Find("SoundsButton").GetComponent<Image>().sprite = sounds[0];
 		}
 		else
 		{
-			GameObject.Find("Sounds").GetComponent<Image>().sprite = sounds[1];
+			GameObject.Find("SoundsButton").GetComponent<Image>().sprite = sounds[1];
+		}
+	}
+
+	void UpdateMusicButton()
+	{
+		if (music_on)
+		{
+			GameObject.Find("MusicButton").GetComponent<Image>().sprite = music[0];
+		}
+		else
+		{
+			GameObject.Find("MusicButton").GetComponent<Image>().sprite = music[1];
 		}
 	}
 }
