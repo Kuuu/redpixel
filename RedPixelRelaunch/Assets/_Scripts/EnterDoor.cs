@@ -37,7 +37,10 @@ public class EnterDoor : MonoBehaviour {
 			if (nextLevelUnlocked)
             {
 				int scene = SceneManager.GetActiveScene().buildIndex + 1;
-				SceneManager.LoadScene(scene, LoadSceneMode.Single);
+				if (scene < 51)
+                {
+					SceneManager.LoadScene(scene, LoadSceneMode.Single);
+				}
 			}
 		}
 	}

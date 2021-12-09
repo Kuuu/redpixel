@@ -128,11 +128,6 @@ public class ChooseLevel : MonoBehaviour {
 		Application.Quit();
 	}
 
-	public void ShowLeaderboards()
-    {
-		Debug.Log("Leaderboards");
-    }
-
     void UpdateSoundsButton()
     {
 		if (sounds_on)
@@ -161,5 +156,10 @@ public class ChooseLevel : MonoBehaviour {
     {
 		LanguageManager.Instance.ChangeLanguage();
 		GameObject.Find("playlvl20").GetComponent<TextObject>().UpdateImage();
+    }
+
+	public void OpenLeaderboards()
+    {
+		SceneManager.LoadScene(51);
     }
 }

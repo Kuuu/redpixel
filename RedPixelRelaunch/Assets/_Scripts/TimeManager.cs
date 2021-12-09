@@ -56,7 +56,7 @@ public class TimeManager : MonoBehaviour {
 		currentTime = 0f;
 	}
 
-	string StringFrom(float floattime) {
+	public static string StringFrom(float floattime) {
 		int minutes = (int)floattime / 60;
 		int seconds = (int)floattime % 60;
 		float fraction = (floattime * 100) % 100;
