@@ -51,6 +51,7 @@ public class TimeManager : MonoBehaviour {
 		if ((bestTime == 0f) || (currentTime < bestTime)) {
 			bestTime = currentTime;
 			GameData.Instance.SetTime("Time"+currentLevel, bestTime);
+			SteamLeaderboardUploader.Instance.UploadScore(currentLevel, bestTime);
 		}
 		currentTime = 0f;
 	}
