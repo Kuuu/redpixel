@@ -90,7 +90,7 @@ public class GameData : MonoBehaviour
                      + "/MySaveData.dat");
         bf.Serialize(file, myDict);
         file.Close();
-        Debug.Log("Game data saved!");
+        //Debug.Log("Game data saved!");
     }
 
     public void LoadData()
@@ -104,14 +104,14 @@ public class GameData : MonoBehaviour
             MyDict loadedData = (MyDict)bf.Deserialize(file);
             file.Close();
             myDict = loadedData;
-            Debug.Log("Game data loaded!");
+            //Debug.Log("Game data loaded!");
             gameData = Enumerable.Range(0, myDict._keys.Count).ToDictionary(i => myDict._keys[i], i => myDict._values[i]);
         }
         else
         {
             myDict = new MyDict();
             gameData = new Dictionary<string, int>();
-            Debug.Log("No data found. Creating new Dict.");
+            //Debug.Log("No data found. Creating new Dict.");
         }
     }
 
@@ -125,12 +125,12 @@ public class GameData : MonoBehaviour
                      + "/MyTimeData.dat");
         bf.Serialize(file, timeDict);
         file.Close();
-        Debug.Log("Time data saved!");
+        //Debug.Log("Time data saved!");
     }
 
     public void LoadTimeData()
     {
-        Debug.Log(Application.persistentDataPath);
+        //Debug.Log(Application.persistentDataPath);
         if (File.Exists(Application.persistentDataPath + "/MyTimeData.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -140,14 +140,14 @@ public class GameData : MonoBehaviour
             TimeDict loadedData = (TimeDict)bf.Deserialize(file);
             file.Close();
             timeDict = loadedData;
-            Debug.Log("Time data loaded!");
+            //Debug.Log("Time data loaded!");
             timeData = Enumerable.Range(0, timeDict._keys.Count).ToDictionary(i => timeDict._keys[i], i => timeDict._values[i]);
         }
         else
         {
             timeDict = new TimeDict();
             timeData = new Dictionary<string, float>();
-            Debug.Log("No time data found. Creating new Dict.");
+            //Debug.Log("No time data found. Creating new Dict.");
         }
     }
 
@@ -156,21 +156,21 @@ public class GameData : MonoBehaviour
         if (File.Exists(Application.persistentDataPath + "/MySaveData.dat"))
         {
             File.Delete(Application.persistentDataPath + "/MySaveData.dat");
-            Debug.Log("Data reset complete!");
+            //Debug.Log("Data reset complete!");
         }
         else
         {
-            Debug.Log("No save data to delete.");
+            //Debug.Log("No save data to delete.");
         }
 
         if (File.Exists(Application.persistentDataPath + "/MyTimeData.dat"))
         {
             File.Delete(Application.persistentDataPath + "/MyTimeData.dat");
-            Debug.Log("Time Data reset complete!");
+            //Debug.Log("Time Data reset complete!");
         }
         else
         {
-            Debug.Log("No time data to delete.");
+            //Debug.Log("No time data to delete.");
         }
     }
 }

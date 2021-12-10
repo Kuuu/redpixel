@@ -123,7 +123,7 @@ public class LeaderboardManager : MonoBehaviour
 
         for (int i = 0; i < lastIndex; i++)
         {
-            Debug.Log("Looking for rank #" + ((currentPage * 5) + i + 1));
+            //Debug.Log("Looking for rank #" + ((currentPage * 5) + i + 1));
             string name = SteamFriends.GetFriendPersonaName(_ids[(currentPage * 5) + i + 1]);
             string time = TimeManager.StringFrom(SteamLeaderboardUploader.Instance.IntToScore(_scores[(currentPage * 5) + i + 1]));
 
