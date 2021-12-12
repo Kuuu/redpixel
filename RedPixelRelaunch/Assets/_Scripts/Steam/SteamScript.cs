@@ -7,7 +7,7 @@ public class SteamScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Steam Initialized: " + SteamManager.Initialized);
+        //Debug.Log("Steam Initialized: " + SteamManager.Initialized);
     }
 
     // Update is called once per frame

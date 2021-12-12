@@ -69,7 +69,13 @@ public class EnterDoor : MonoBehaviour {
 	}
 
 	void Win() {
+		if (won)
+        {
+			return;
+        }
+
 		won = true;
+		Debug.Log("Won!");
 		timeManager.SaveTime();
 
 		int currentLevel = SceneManager.GetActiveScene().buildIndex;
