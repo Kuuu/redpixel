@@ -26,8 +26,15 @@ public class LeaderboardManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SteamLeaderboardUploader.Instance.GetScores(1);
-        levelNumber.text = "1";
+        if (SteamManager.Initialized)
+        {
+            GameObject.Find("NoConnection").SetActive(false);
+            SteamLeaderboardUploader.Instance.GetScores(1);
+            levelNumber.text = "1";
+        } else
+        {
+            ClearFields();
+        }
     }
 
     public void BackToMenu()
@@ -37,6 +44,11 @@ public class LeaderboardManager : MonoBehaviour
 
     public void DownloadScores()
     {
+        if (!SteamManager.Initialized)
+        {
+            return;
+        }
+
         string levelString = GameObject.Find("InputField").GetComponent<InputField>().text;
         int level = 0;
         try

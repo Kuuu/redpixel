@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Ilya Kudinov
+  companyName: Bkmz Games
   productName: RedPixel
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -154,7 +154,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.kuuu.redpixel
-    Standalone: unity.Ilya Kudinov.RedPixel
+    Standalone: com.BkmzGames.RedPixel
     Tizen: com.kuuu.redpixel
     iPhone: com.kuuu.redpixel
     tvOS: com.kuuu.redpixel
