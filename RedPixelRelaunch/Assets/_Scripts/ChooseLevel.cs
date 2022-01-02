@@ -34,8 +34,10 @@ public class ChooseLevel : MonoBehaviour {
 
 
 	void Update () {
+		/*
 		if (Input.GetKeyDown(KeyCode.Escape))
 			Quit();
+		*/
 	}
 
 	public void ButtonPressed(int name) {
