@@ -38,6 +38,13 @@ public class ChooseLevel : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Escape))
 			Quit();
 		*/
+
+		// Operation to remove NIKKI's bugged highscore in level 28
+		if (Input.GetKey(KeyCode.R) && Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.A))
+        {
+			Debug.Log("Clearing");
+			GameData.Instance.SetTime("Time" + 28, 40.59f);
+		}
 	}
 
 	public void ButtonPressed(int name) {
