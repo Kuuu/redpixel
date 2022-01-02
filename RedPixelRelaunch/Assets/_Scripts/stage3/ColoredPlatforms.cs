@@ -46,6 +46,8 @@ public class ColoredPlatforms : MonoBehaviour {
 	}
 
 	public void Adjust(string color) {
+
+		
 		switch (color) {
 		case "red":
 			foreach (GameObject platform in red) {

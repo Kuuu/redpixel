@@ -180,6 +180,10 @@ public class PlayerMove3 : MonoBehaviour {
 			isJumperAllowed = true;
 			jumper = false;
 		}
+		if ((col.tag == "ColoredPlatform") || (col.tag == "ColoredFallingPlatform"))
+		{
+			standing = false;
+		}
 	}
 
 
